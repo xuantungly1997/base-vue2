@@ -1,0 +1,17 @@
+# Author: binh.hathanh
+version: "3.7"
+
+services:
+  vuejs:
+    container_name: vue-js
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/web
+      - /web/node_modules
+    environment:
+      # Setting for docker hot reload
+      - CHOKIDAR_USEPOLLING=true
